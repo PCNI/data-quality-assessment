@@ -1,0 +1,242 @@
+<script src="getExternalResource.html?path=DataQualityReport/New Report/Report Templates - Data Quality-m/jquery.dynatable.js"></script>
+<link rel="stylesheet" type="text/css" href="getExternalResource.html?path=DataQualityReport/New Report/Report Templates - Data Quality-m/jquery.dynatable.css">
+<style type="text/css">
+
+
+.block{
+    display: block;
+    width: 100%;
+    color: #000;
+    font-size: 32px;
+    text-align: center;
+}
+
+</style>
+    <div class="container">
+	    <div class="row">
+		    <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-xs-3 control-label text-left">Repeats :</label>
+				    <div class="col-xs-9">
+                        <select class="selectpicker" name="selectRepeatOrder" id="selectRepeatOrder">
+                            <option>Weekly</option>
+                            <option>Daily</option>
+                            <option>Monthly</option>
+							<option>Yearly</option>
+                        </select>
+					</div>
+				</div>
+		    <div class="form-group">
+                <label class="col-xs-3 control-label text-left">Repeat Every:</label>
+				<div class="col-xs-9">
+                    <select class="selectpicker" id="selectRepeatEvery">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+						  <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+						  <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+						  <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+						  <option>13</option>
+                          <option>14</option>
+                          <option>15</option>
+						  <option>16</option>
+                          <option>17</option>
+                          <option>18</option>
+						  <option>19</option>
+                          <option>20</option>
+                          <option>21</option>
+						  <option>22</option>
+                          <option>23</option>
+                          <option>24</option>
+						  <option>25</option>
+                          <option>26</option>
+                          <option>27</option>
+						  <option>27</option>
+                          <option>28</option>
+                          <option>29</option>
+						  <option>30</option>
+                        </select>
+						<input type="text" name="repeatEveryText" id="repeatEveryText" style="border:none;" value="weeks">
+					</div>
+                
+         </div>
+
+		 <div class="form-group" id="repeatOn">
+                <label class="col-sm-3 control-label text-left" id="repeatText">Repeat On :</label>
+                <div class="col-sm-9" id="weekMonthSelector">
+                    <label class="checkbox-inline" id="s">
+                        <input type="checkbox" value="sunday" name="sun" id="sunday" class="check"> S
+                    </label>
+                    <label class="checkbox-inline" id="m">
+                        <input type="checkbox" value="monday" name="mon" id="monday" class="check"> M
+                    </label>
+                    <label class="checkbox-inline" id="t">
+                        <input type="checkbox" value="tuesday" name="tue" id="tuesday" class="check"> T
+                    </label>
+                    <label class="checkbox-inline" id="w">
+                        <input type="checkbox" value="wednesday" name="wed" id="wednesday" class="check"> W 
+                    </label>
+					<label class="checkbox-inline" id="th">
+                        <input type="checkbox" value="thursday" name="thu" id="thursday" checked class="check"> T
+                    </label>
+					<label class="checkbox-inline" id="f">
+                        <input type="checkbox" value="friday" name="fri" id="friday" class="check"> F 
+                    </label>
+					<label class="checkbox-inline" id="sat">
+                        <input type="checkbox" value="saturday" name="sat" id="saturday" class="check"> S
+                    </label>
+					<label class="dayofmonth" id="dayofmonth"> <input type="radio" name="checkMonth" checked id="dayofmonth" value="dayOfTheMonth"> day of the month</label>
+					<label class="dayofweek" id="dayofweek"> <input type="radio" name="checkMonth" id="dayOfThisWeek"> day of the week</label>
+                </div>
+	     </div>
+
+		 <div class="form-group">
+                <label class="col-xs-3 control-label text-left">Starts On :</label>
+                <div class="col-xs-4" id="schedulesDate"></div>
+         </div>
+		 
+		 <div class="form-group">
+                <label class="col-sm-3 control-label text-left">Ends :</label>
+				<div class="col-sm-9" id="ends">
+                    <div class="radio">
+                       <label>
+                          <input type="radio" name="optionsRadios" id="never" 
+                            value="never" checked> Never
+                       </label>
+                    </div>
+					<div class="radio">
+                       <label>
+                          <input type="radio" name="optionsRadios" id="endsAfter" 
+                            value="After"> After  </label>
+                     <label><input type="text" name="occurrences" id="occurrences" style="border-color:black;" disabled="disabled" value="35"> Occurrences 
+                       </label>
+                    </div>
+					<div class="radio">
+                       
+					   <table>
+					   <tr>
+					   <td>
+                    <label> <input type="radio" name="optionsRadios" id="endsOn" 
+                            value="On"> On </label>
+						</td>
+						<td>
+							<div class="col-sm-9" id="scheduleeDate"></div>
+						</td>
+						</tr>
+							</table>
+                       
+					   
+					 </div>
+                </div>
+		    </div>
+			<div class="form-group">
+                <label class="col-xs-3 control-label text-left">Summary :</label>
+				<div class="col-sm-9" id="summaryDescription">
+				<input type="text" name="summaryRepeatsText" id="summaryRepeatsText" style="border:none;" value="Weekly" size="410">
+				
+				</div>
+            </div>	
+      </div>
+    </div> 
+</div> 
+
+<script> 
+        var dashboard = Dashboard;
+        dashboard.resetAll();
+        dashboard.setVariable('startsOn','2013-12-16');
+        dashboard.setVariable('ends','2014-06-30');
+    
+   
+   var scheduleSDate ={
+    name: "scheduleSDate",
+    type:  "datepicker",
+    parameters: ["startsOn"],
+    htmlElementId: "#schedulesDate",
+    executeAtStart: true
+    };
+
+  var scheduleEDate ={
+    name: "scheduleEDate",
+    type:  "datepicker",
+    parameters: ["ends"],
+    htmlElementId: "#scheduleeDate",
+    executeAtStart: true
+   };
+   
+    var components = [scheduleSDate,scheduleEDate];
+    
+        dashboard.init(components);
+		
+		$(document).ready(function() {
+		$('#dayofmonth').hide();
+		$('#dayofweek').hide();
+		var chkId = '';
+        $('.check:checked').each(function() {
+                chkId += $(this).val() + ",";
+       });
+         chkId = chkId.slice(0,-1);
+		 console.log(chkId);
+		 var addSummary = "Weekly On"+" "+chkId;
+		$('#summaryRepeatsText').val(addSummary);
+		});
+		$('#selectRepeatOrder').change(function() 
+        {
+		if($('#selectRepeatOrder').val()=='Weekly')   //weekly
+		{
+		 $('#repeatEveryText').val('weeks');
+		 $('#selectRepeatEvery').val('1');
+		 $('#repeatOn').show();
+		 $('#repeatText').text('Repeat On :');
+		 $('#dayofmonth').hide();
+		 $('#dayofweek').hide();
+		 $('#s').show(); $('#m').show(); $('#t').show(); $('#w').show(); $('#th').show(); $('#f').show(); $('#sat').show();
+		 var chkId = [];
+         $('.check:checked').each(function() {
+                if (this.checked) {
+           chkId.push(this.value);
+         }
+        });
+         chkId.splice(arr.indexOf(this.value), -1)
+		 console.log(arr);
+		 var addSummary = "Weekly On"+" "+chkId;
+		 $('#summaryRepeatsText').val(addSummary);
+		}
+		
+		if($('#selectRepeatOrder').val()=='Monthly')   //monthly
+		{
+		 $('#repeatEveryText').val('months');
+		 $('#summaryRepeatsText').val('Monthly On');
+		 $('#repeatOn').show();
+		 $('#repeatText').text('Repeat By :');
+		 $('#dayofmonth').show();
+		 $('#dayofweek').show();
+		 $('#s').hide(); $('#m').hide(); $('#t').hide(); $('#w').hide(); $('#th').hide(); $('#f').hide(); $('#sat').hide();
+		 $('#selectRepeatEvery').val('1');
+		}
+		
+		if($('#selectRepeatOrder').val()=='Yearly')      //yearly
+		{
+		 $('#repeatEveryText').val('years');
+		 $('#summaryRepeatsText').val('Annually On');
+		 $('#repeatOn').hide();
+		 $('#selectRepeatEvery').val('1');
+		}
+		
+		if($('#selectRepeatOrder').val()=='Daily')      //daily
+		{
+		 $('#repeatEveryText').val('days');
+		 $('#summaryRepeatsText').val('Daily');
+		 $('#repeatOn').hide();
+		 $('#selectRepeatEvery').val('1');
+		}
+		
+		});
+</script>
+
+

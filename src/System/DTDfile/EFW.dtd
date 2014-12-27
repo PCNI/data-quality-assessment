@@ -1,0 +1,11 @@
+<!ELEMENT efw (title, author, description, icon, template, visible, style)>
+<!ELEMENT title (#PCDATA)> 
+<!ELEMENT author (#PCDATA)> 
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT icon (#PCDATA)>
+<!ELEMENT template (#PCDATA)>
+<!ELEMENT visible (#PCDATA)>
+<!ELEMENT style (#PCDATA)>
+
+
+

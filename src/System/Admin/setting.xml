@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<efwProject>
+<efwSolution>D:\\EFW_PCNI</efwSolution>
+ 	  <Extentions>
+	     	<efw visible="true" rule="com.helical.efw.rules.EFWRuleValidator">efw</efw>
+			<efwsr visible="true" rule="com.helical.efw.rules.EFWSRRuleValidator">rdf</efwsr>
+			<efwd>EFWD</efwd>
+			<efwvf>EFWVF</efwvf>
+			<efwfav visible="true" rule="com.helical.efw.rules.EFWSRRuleValidator">fav</efwfav>
+			<folder visible="true">
+				<efwFolder rule="com.helical.efw.rules.EFWFolderRuleValidator">efwfolder</efwFolder>
+			</folder>
+			<efwExport>crt</efwExport>
+			<efwresult visible="true" rule="com.helical.efw.rules.EFWSRRuleValidator">result</efwresult>
+	  </Extentions>
+	  <enableSavedResult>true</enableSavedResult>
+	  <operations>
+	  		<efw mandotary="true">
+	  			<delete class="com.helical.efw.rules.io.EFWDeleteRule"/>
+	  		</efw>
+		  	<efwsr mandotary="true">
+		  		<delete class="com.helical.efw.rules.io.EFWSRDeleteRule"/>
+		  		<import class="com.helical.efw.rules.io.EFWSRImportRule"/>
+		  	</efwsr>
+		  	<efwfav mandotary="true">
+		  		<delete class="com.helical.efw.rules.io.EFWFavouriteDeleteRule"/>
+		  	</efwfav>
+		  	<efwresult mandotary="true">
+		  		<delete class="com.helical.efw.rules.io.EFWSavedResultDeleteRule"/>
+		  	</efwresult>
+	  </operations>
+	  <contents>
+			<type name="content.generic" class="com.helical.efw.resourceloader.ExternalResourceReader">
+			    <content name="js" pattern="*.js" responseContent="text/javascript"/>
+				<content name="css" pattern="*.css" responseContent="text/css"/>			
+			</type>
+			<type name="content.image" class="com.helical.efw.resourceloader.ImageReader">
+				<content name="jpg" pattern="*.jpg" />
+				<content name="jpg" pattern="*.jpeg" />
+				<content name="gif" pattern="*.gif" />
+				<content name="jpg" pattern="*.png" />
+				<content name="jpg" pattern="*.svg" />
+			</type>
+	  </contents>
+  	  <resourcereader type="xml" class= "com.helical.efw.resourcereader.XMLResourceReader"></resourcereader>
+	  <DataSources>
+	  		<DataSource type="sql.jdbc" class="com.helical.efw.drivers.JDBCDriver"> </DataSource>
+			<DataSource type="jasper.jdbc" class="com.helical.efw.ws.WsDataSource"> </DataSource>
+	  </DataSources>
+	  <Charts>
+	   		<Chart type="Custom" class="com.helical.efw.chart.Custom"> </Chart>
+	  </Charts>
+	  <BaseUrl>http://localhost:7080/pcni/hdi.html</BaseUrl>
+</efwProject>

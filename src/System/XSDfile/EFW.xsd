@@ -1,0 +1,15 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="efw">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="title"/>
+        <xs:element type="xs:string" name="author"/>
+        <xs:element type="xs:string" name="description"/>
+        <xs:element type="xs:string" name="icon"/>
+        <xs:element type="xs:string" name="template"/>
+        <xs:element type="xs:string" name="visible"/>
+        <xs:element type="xs:string" name="style"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,5 @@
+username = jasperadmin
+password = jasperadmin
+baseUrl = http://192.168.2.9:7080
+loginUrl = /jasperserver/rest/login
+datasourceUrl = /jasperserver/rest/resource

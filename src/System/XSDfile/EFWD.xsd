@@ -1,0 +1,61 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="EFWD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DataSources">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Connection" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Driver"/>
+                    <xs:element type="xs:string" name="Url"/>
+                    <xs:element type="xs:string" name="User"/>
+                    <xs:element type="xs:string" name="Pass"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:byte" name="id" use="optional"/>
+                  <xs:attribute type="xs:string" name="type" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+		<xs:element name="DataMaps">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="DataMap" maxOccurs="unbounded" minOccurs="0">
+					  <xs:complexType>
+						<xs:sequence>
+						  <xs:element type="xs:string" name="Name"/>
+						  <xs:element type="xs:string" name="Query"/>
+						  <xs:element name="Parameters">
+							<xs:complexType>
+							  <xs:sequence>
+								<xs:element name="Parameter" maxOccurs="unbounded" minOccurs="0">
+								  <xs:complexType>
+									<xs:simpleContent>
+									  <xs:extension base="xs:string">
+										<xs:attribute type="xs:string" name="name" use="optional"/>
+										<xs:attribute type="xs:string" name="type" use="optional"/>
+										<xs:attribute type="xs:string" name="default" use="optional"/>
+										<xs:attribute type="xs:string" name="pattern" use="optional"/>
+									  </xs:extension>
+									</xs:simpleContent>
+								  </xs:complexType>
+								</xs:element>
+							  </xs:sequence>
+							</xs:complexType>
+						  </xs:element>
+						</xs:sequence>
+						<xs:attribute type="xs:byte" name="id" use="optional"/>
+						<xs:attribute type="xs:byte" name="connection" use="optional"/>
+						<xs:attribute type="xs:string" name="type" use="optional"/>
+					  </xs:complexType>
+					</xs:element>
+				</xs:sequence>
+          </xs:complexType>
+		  </xs:element>
+		  </xs:sequence>
+		</xs:complexType>
+	  </xs:element>
+</xs:schema>

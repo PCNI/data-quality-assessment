@@ -1,0 +1,639 @@
+<script src="getExternalResource.html?path=DataQualityReport/New Report/Report Templates - Data Quality-m/jquery.dynatable.js"></script>
+<link rel="stylesheet" type="text/css" href="getExternalResource.html?path=DataQualityReport/New Report/Report Templates - Data Quality-m/jquery.dynatable.css">
+<style type="text/css">
+.dynatable-head {
+        background-color: #cccccc;
+}
+
+svg{
+        cursor: pointer;
+}
+
+
+.bar {
+    fill: #c0c0c0;
+
+}
+
+
+.btn-success {
+        background-color: #e6e6e6;
+        border-color: black;
+        color: black;
+}
+.btn-success.active,
+.btn-success:active,
+.btn-success:focus,
+.btn-success.hover,
+.open >
+.dropdown-
+toggle.btn-success {
+ background-color: #e6e6e6;
+ border-color:black;
+ color: black;
+ }
+
+.btn-hover {
+background-color:#e6e6e6;
+}
+
+.form-control {
+    border-color:black;
+}
+
+#chart_4 {
+    border-color:black;
+    border:none;
+}
+.panel > .table-bordered > tbody > tr:first-child > td, .panel > .table-bordered > tbody > tr:first-child > th, .panel > .table-bordered > tbody > tr:last-child > td, .panel > .table-bordered > tbody > tr:last-child > th, .panel > .table-bordered > tfoot > tr:last-child > td, .panel > .table-bordered > tfoot > tr:last-child > th, .panel > .table-bordered > thead > tr:first-child > td, .panel > .table-bordered > thead > tr:first-child > th, .panel > .table-responsive > .table-bordered > tbody > tr:first-child > td, .panel > .table-responsive > .table-bordered > tbody > tr:first-child > th, .panel > .table-responsive > .table-bordered > tbody > tr:last-child > td, .panel > .table-responsive > .table-bordered > tbody > tr:last-child > th, .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > td, .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > th, .panel > .table-responsive > .table-bordered > thead > tr:first-child > td, .panel > .table-responsive > .table-bordered > thead > tr:first-child > th {
+        border-bottom: 1px solid;
+        border-right: 1px solid;
+        border-left:1px solid;
+        border-top:1px solid;
+}
+
+
+.dynatable-sort-header {
+color:black;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+        background-color: white;
+}
+
+
+.panel > .table-bordered > tbody > tr > td:last-child, .panel > .table-bordered > tbody > tr > th:last-child, .panel > .table-bordered > tfoot > tr > td:last-child, .panel > .table-bordered > tfoot > tr > th:last-child, .panel > .table-bordered > thead > tr > td:last-child, .panel > .table-bordered > thead > tr > th:last-child, .panel > .table-responsive > .table-bordered > tbody > tr > td:last-child, .panel > .table-responsive > .table-bordered > tbody > tr > th:last-child, .panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child, .panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child, .panel > .table-responsive > .table-bordered > thead > tr > td:last-child, .panel > .table-responsive > .table-bordered > thead > tr > th:last-child {
+        border-right: 1px solid;
+}
+
+.panel > .table-bordered > tbody > tr > td:first-child, .panel > .table-bordered > tbody > tr > th:first-child, .panel > .table-bordered > tfoot > tr > td:first-child, .panel > .table-bordered > tfoot > tr > th:first-child, .panel > .table-bordered > thead > tr > td:first-child, .panel > .table-bordered > thead > tr > th:first-child, .panel > .table-responsive > .table-bordered > tbody > tr > td:first-child, .panel > .table-responsive > .table-bordered > tbody > tr > th:first-child, .panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child, .panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child, .panel > .table-responsive > .table-bordered > thead > tr > td:first-child, .panel > .table-responsive > .table-bordered > thead > tr > th:first-child {
+        border-left: 1px solid;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+        background-color: white;
+        border: 1px solid;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+        background-color: #f9f9f9;
+}
+
+.table-bordered, .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+        border: 1px solid;
+}
+#p2
+{
+width:600px; 
+height:30px;
+margin-left:420px; 
+margin-top:-49px;
+}
+
+.block{
+    display: block;
+    width: 100%;
+    color: #000;
+    font-size: 32px;
+    text-align: center;
+}
+
+.text-padding{
+    padding: 10px;
+}
+
+.text-left{
+    text-align: left !important;
+}
+</style>
+    <div class="container">
+	    <div class="row">
+		    <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-xs-3 control-label text-left">Repeats :</label>
+				    <div class="col-xs-9">
+                        <select class="selectpicker" name="selectRepeatOrder" id="selectRepeatOrder">
+                            <option>Weekly</option>
+                            <option>Daily</option>
+                            <option>Monthly</option>
+							<option>Yearly</option>
+                        </select>
+					</div>
+				</div>
+		    <div class="form-group">
+                <label class="col-xs-3 control-label text-left">Repeat Every:</label>
+				<div class="col-xs-9">
+                    <select class="selectpicker" id="selectRepeatEvery">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+						  <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+						  <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+						  <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+						  <option>13</option>
+                          <option>14</option>
+                          <option>15</option>
+						  <option>16</option>
+                          <option>17</option>
+                          <option>18</option>
+						  <option>19</option>
+                          <option>20</option>
+                          <option>21</option>
+						  <option>22</option>
+                          <option>23</option>
+                          <option>24</option>
+						  <option>25</option>
+                          <option>26</option>
+                          <option>27</option>
+						  <option>27</option>
+                          <option>28</option>
+                          <option>29</option>
+						  <option>30</option>
+                          <option>31</option>
+                        </select>
+						<input type="text" name="repeatEveryText" id="repeatEveryText" style="border:none;" value="weeks">
+					</div>
+                
+         </div>
+		  <div class="form-group">
+                <label class="col-xs-12 control-label text-left"></label>
+				
+                
+         </div>
+		 <div class="form-group" id="repeatOn">
+                <label class="col-sm-3 control-label text-left" id="repeatText">Repeat On :</label>
+                <div class="col-sm-9" id="weekMonthSelector">
+                    <label class="checkbox-inline" id="s">
+                        <input type="checkbox" value="sunday" name="sun" id="sunday"> S
+                    </label>
+                    <label class="checkbox-inline" id="m">
+                        <input type="checkbox" value="monday" name="mon" id="monday"> M
+                    </label>
+                    <label class="checkbox-inline" id="t">
+                        <input type="checkbox" value="tuesday" name="tue" id="tuesday"> T
+                    </label>
+                    <label class="checkbox-inline" id="w">
+                        <input type="checkbox" value="wednesday" name="wed" id="wednesday"> W 
+                    </label>
+					<label class="checkbox-inline" id="th">
+                        <input type="checkbox" value="thursday" name="thu" id="thursday" checked> T
+                    </label>
+					<label class="checkbox-inline" id="f">
+                        <input type="checkbox" value="friday" name="fri" id="friday"> F 
+                    </label>
+					<label class="checkbox-inline" id="sat">
+                        <input type="checkbox" value="saturday" name="sat" id="saturday"> S
+                    </label>
+					<label class="dayofmonth" id="dayofmonth"> <input type="radio" name="checkMonth" checked id="dayofmonth" value="dayOfTheMonth"> day of the month</label>
+					<label class="dayofweek" id="dayofweek"> <input type="radio" name="checkMonth" id="dayOfThisWeek"> day of the week</label>
+                </div>
+	     </div>
+
+		 <div class="form-group">
+                <label class="col-xs-3 control-label text-left">Starts On :</label>
+                <div class="col-xs-4" id="schedulesDate"></div>
+         </div>
+		 
+		 <div class="form-group">
+                <label class="col-sm-3 control-label text-left">Ends :</label>
+				<div class="col-sm-9" id="ends">
+                    <div class="radio">
+                       <label>
+                          <input type="radio" name="optionsRadios" id="never" 
+                            value="Never" checked> Never
+                       </label>
+                    </div>
+					<div class="radio">
+                       <label>
+                          <input type="radio" name="optionsRadios" id="endsAfter" 
+                            value="After"> After  </label>
+                     <label><input type="text" name="occurrences" id="occurrences" style="border-color:black;" disabled="disabled" value="35"> Occurrences 
+                       </label>
+                    </div>
+					<div class="radio">
+                       
+					   <table>
+					   <tr>
+					   <td>
+                    <label> <input type="radio" name="optionsRadios" id="endsOn" 
+                            value="On"> On </label>
+						</td>
+						<td>
+							<div class="col-sm-9" id="scheduleeDate"></div>
+						</td>
+						</tr>
+							</table>
+                       
+					   
+					 </div>
+                </div>
+		    </div>
+			<div class="form-group">
+                <label class="col-xs-3 control-label text-left">Summary :</label>
+				<div class="col-sm-9" id="summaryDescription">
+				<input type="text" name="summaryRepeatsText" id="summaryRepeatsText" style="border:none;" value="Weekly" size="410">
+				
+				</div>
+            </div>	
+      </div>
+    </div> 
+</div> 
+
+<script> 
+        var dashboard = Dashboard;
+        dashboard.resetAll();
+        dashboard.setVariable('startsOn','2013-12-16');
+        dashboard.setVariable('ends','2014-06-30');
+    
+   
+   var scheduleSDate ={
+    name: "scheduleSDate",
+    type:  "datepicker",
+    parameters: ["startsOn"],
+    htmlElementId: "#schedulesDate",
+    executeAtStart: true
+    };
+
+  var scheduleEDate ={
+    name: "scheduleEDate",
+    type:  "datepicker",
+    parameters: ["ends"],
+    htmlElementId: "#scheduleeDate",
+    executeAtStart: true
+   };
+   
+    var components = [scheduleSDate,scheduleEDate];
+    
+        dashboard.init(components);
+		
+		 $(document).ready(function() {
+     $('#dayofmonth').hide();
+	 $('#dayofweek').hide();
+	 var d = new Date(Dashboard.getVariable('ends','dd mm yyyy'));
+	 var n = d.getDate();
+	 var month = new Array();
+       month[0] = "January";
+       month[1] = "February";
+       month[2] = "March";
+       month[3] = "April";
+       month[4] = "May";
+       month[5] = "June";
+       month[6] = "July";
+       month[7] = "August";
+       month[8] = "September";
+       month[9] = "October";
+       month[10] = "November";
+       month[11] = "December";
+       var m = month[d.getMonth()]; 
+	   var day = new Array();
+	   day[0] = "Sunday";
+	   day[1] = "Monday";
+	   day[2] = "Tuesday";
+	   day[3] = "Wednesday";
+	   day[4] = "Thursday";
+	   day[5] = "Friday";
+	   day[6] = "Saturday";
+	   var dy = day[d.getDay()];
+	   console.log(d);
+	   console.log(n);
+	   console.log(m);
+	   console.log(dy);
+	   
+	var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    var today = dd+'/'+mm+'/'+yyyy;
+    console.log(today);
+	
+	var date = new Date(Dashboard.getVariable('ends')),
+        days = ['Sunday','Monday','Tuesday','Wednesday',
+                'Thursday','Friday','Saturday'],
+        prefixes = ['First', 'Second', 'Third', 'Fourth', 'Last'];
+
+    var weekday =  prefixes[0 | date.getDate() / 7] + ' ' + days[date.getDay()];
+	console.log(weekday);
+	
+	$(".daterangepicker").click(function(event){
+	$("#schedulesDate input").each(function(){
+			var $this = $(this); 
+			console.log("Value: "+$this.val());
+		});
+	});
+	
+	$("#endsAfter").click(function(){
+        if ($(this).is(":checked")){
+            $("#occurrences").attr('disabled', null);
+			var frequency = $("#occurrences").val();
+			console.log(frequency);
+        } else {
+            $("#occurrences").attr('disabled', 'disabled');
+        }
+    });
+	
+	});
+	
+	//main	
+   $('#selectRepeatOrder').change(function() 
+   {
+    if($('#selectRepeatOrder').val()=='Weekly')
+	{
+	 $('#repeatOn').show();
+	 $('#repeatText').html("Repeat On :");
+     $('#repeatEveryText').val('weeks');
+	 $('#summaryRepeatsText').val('Weekly On');
+	 $('#s').show();
+	 $('#m').show();
+	 $('#t').show();
+	 $('#w').show();
+	 $('#th').show();
+	 $('#f').show();
+	 $('#sat').show();
+	 $('#dayofmonth').hide();
+	 $('#dayofweek').hide();
+	 
+	 var arr = [];
+	 var str = $('#summaryRepeatsText').val();
+	 str += " ";
+	 var str1 = " ";
+	 
+     $('#weekMonthSelector input').change(function() {
+        if (this.checked) {
+           arr.push(this.value);
+        }
+        else {
+          arr.splice(arr.indexOf(this.value), 1);
+        }
+
+     $('#summaryRepeatsText').val(str + arr);
+	 
+	  $("#endsAfter").click(function(){
+	    var str2 = ","+" "+$('#occurrences').val()+" "+"times";
+		$('#summaryRepeatsText').val(str +" "+arr+" "+str2);
+	 });
+	 $("#endsOn").click(function(){
+	    $("#scheduleeDate input").each(function(){
+            var $this = $(this); 
+            console.log("Value: "+$this.val());
+
+ 
+			var today = new Date($this.val());
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+
+            var yyyy = today.getFullYear();
+            if(dd<10){
+              dd='0'+dd
+            } 
+           if(mm<10){
+            mm='0'+mm
+           } 
+           today = dd+'/'+mm+'/'+yyyy;
+		   var str1 = ","+" "+"until"+" "+today;
+		  $('#summaryRepeatsText').val(str +" "+arr+" "+str1);
+	 });
+	
+   });
+	 $("#never").click(function(){
+		$('#summaryRepeatsText').val(str+arr);
+	 });
+	 
+	}); 	   
+}	 
+	if($('#selectRepeatOrder').val()=='Monthly')
+	{
+     $('#repeatEveryText').val('months');
+	 $('#summaryRepeatsText').val('Monthly On');
+	 $('#repeatOn').show();
+	 $('#repeatText').html("Repeat By :");
+	 $('#s').hide();
+	 $('#m').hide();
+	 $('#t').hide();
+	 $('#w').hide();
+	 $('#th').hide();
+	 $('#f').hide();
+	 $('#sat').hide();
+	 $('#dayofmonth').show();
+	 $('#dayofweek').show();
+	 var str = $('#summaryRepeatsText').val();
+	   $('#dayofmonth').click(function() {
+	    $(".daterangepicker").click(function(event){
+	      $("#schedulesDate input").each(function(){
+			var $this = $(this); 
+            var d = new Date($this.val());
+		    var dayNumber = d.getDate();
+		    var str1 = "day"+" "+dayNumber;
+		    $('#summaryRepeatsText').val(str +" "+str1);
+			
+			 $("#endsAfter").click(function(){
+	    var str2 = ","+" "+$('#occurrences').val()+" "+"times";
+		$('#summaryRepeatsText').val(str +" "+str1+" "+str2);
+	 });
+	 $("#endsOn").click(function(){
+	    $("#scheduleeDate input").each(function(){
+            var $this = $(this); 
+            console.log("Value: "+$this.val());
+
+ 
+			var today = new Date($this.val());
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+
+            var yyyy = today.getFullYear();
+            if(dd<10){
+              dd='0'+dd
+            } 
+           if(mm<10){
+            mm='0'+mm
+           } 
+           today = dd+'/'+mm+'/'+yyyy;
+		   var str2 = ","+" "+"until"+" "+today;
+		  $('#summaryRepeatsText').val(str +" "+str1+" "+str2);
+	 });
+	
+   });
+	 $("#never").click(function(){
+		$('#summaryRepeatsText').val(str +" "+str1);
+	 });
+			
+		});
+	});
+});
+     
+	   $('#dayOfThisWeek').click(function() {
+	    $(".daterangepicker").click(function(event){
+	      $("#schedulesDate input").each(function(){
+			var $this = $(this); 
+			var d = new Date($this.val()),
+            days = ['Sunday','Monday','Tuesday','Wednesday',
+                'Thursday','Friday','Saturday'],
+            prefixes = ['First', 'Second', 'Third', 'Fourth', 'Last'];
+
+            var weekday =  prefixes[0 | d.getDate() / 7] + ' ' + days[d.getDay()];
+			$('#summaryRepeatsText').val(str +" "+weekday);
+			
+			 $("#endsAfter").click(function(){
+	    var str2 = ","+" "+$('#occurrences').val()+" "+"times";
+		$('#summaryRepeatsText').val(str +" "+weekday+" "+str2);
+	 });
+	 $("#endsOn").click(function(){
+	    $("#scheduleeDate input").each(function(){
+            var $this = $(this); 
+            console.log("Value: "+$this.val());
+
+ 
+			var today = new Date($this.val());
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+
+            var yyyy = today.getFullYear();
+            if(dd<10){
+              dd='0'+dd
+            } 
+           if(mm<10){
+            mm='0'+mm
+           } 
+           today = dd+'/'+mm+'/'+yyyy;
+		   var str1 = ","+" "+"until"+" "+today;
+		  $('#summaryRepeatsText').val(str +" "+weekday+" "+str1);
+	 });
+	
+   });
+	 $("#never").click(function(){
+		$('#summaryRepeatsText').val(str +" "+weekday);
+	 });
+			
+		});	
+	  });
+	});
+ }
+	if($('#selectRepeatOrder').val()=='Daily')
+	{
+     $('#repeatEveryText').val('days');
+	 $('#summaryRepeatsText').val('Daily');
+	 $('#repeatOn').hide();
+	 $('#dayofmonth').hide();
+	 $('#dayofweek').hide();
+	 var str = $('#summaryRepeatsText').val();
+	 $("#endsAfter").click(function(){
+	    var str1 = ","+" "+$('#occurrences').val()+" "+"times";
+		$('#summaryRepeatsText').val(str +" "+str1);
+	 });
+	 $("#endsOn").click(function(){
+	    $("#scheduleeDate input").each(function(){
+            var $this = $(this); 
+            console.log("Value: "+$this.val());
+
+ 
+			var today = new Date($this.val());
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+
+            var yyyy = today.getFullYear();
+            if(dd<10){
+              dd='0'+dd
+            } 
+           if(mm<10){
+            mm='0'+mm
+           } 
+           today = dd+'/'+mm+'/'+yyyy;
+		   var str1 = ","+" "+"until"+" "+today;
+		  $('#summaryRepeatsText').val(str +" "+str1);
+	 });
+	
+   });
+	 $("#never").click(function(){
+		$('#summaryRepeatsText').val(str);
+	 });
+	}
+	if($('#selectRepeatOrder').val()=='Yearly')
+	{
+     $('#repeatEveryText').val('years');
+	 $('#summaryRepeatsText').val('Annually On');
+	 $('#repeatOn').hide();
+	 $('#dayofmonth').hide();
+	 $('#dayofweek').hide();
+	
+	   var str = $('#summaryRepeatsText').val();
+	   $(".daterangepicker").click(function(event){
+	      $("#schedulesDate input").each(function(){
+			var $this = $(this); 
+			console.log("Value: "+$this.val());
+			
+			var str1 = '';
+	        var d = new Date($this.val());
+	        var mon = new Array();
+            mon[0] = "January";
+            mon[1] = "February";
+            mon[2] = "March";
+            mon[3] = "April";
+            mon[4] = "May";
+            mon[5] = "June";
+            mon[6] = "July";
+            mon[7] = "August";
+            mon[8] = "September";
+            mon[9] = "October";
+            mon[10] = "November";
+            mon[11] = "December";
+            var m = mon[d.getMonth()]; 
+	        var day = d.getDate();
+	        var monthDay = m +" "+ day;
+	        console.log(monthDay);
+	        str1 = " " +monthDay;
+			
+	        $('#summaryRepeatsText').val(str +" "+str1);
+			
+			
+	 $("#endsAfter").click(function(){
+	    var str2 = ","+" "+$('#occurrences').val()+" "+"times";
+		$('#summaryRepeatsText').val(str +" "+str1+" "+str2);
+	 });
+	 $("#endsOn").click(function(){
+	    $("#scheduleeDate input").each(function(){
+            var $this = $(this); 
+            console.log("Value: "+$this.val());
+
+ 
+			var today = new Date($this.val());
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+
+            var yyyy = today.getFullYear();
+            if(dd<10){
+              dd='0'+dd
+            } 
+           if(mm<10){
+            mm='0'+mm
+           } 
+           today = dd+'/'+mm+'/'+yyyy;
+		   var str2 = ","+" "+"until"+" "+today;
+		  $('#summaryRepeatsText').val(str +" "+str1+" "+str2);
+	 });
+	
+   });
+	 $("#never").click(function(){
+		$('#summaryRepeatsText').val(str+" "+str1);
+	 });
+			
+		});
+		
+	});
+	
+   }
+  });
+	  
+	     
+</script>
+
+

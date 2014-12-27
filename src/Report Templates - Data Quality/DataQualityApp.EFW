@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<efw>
+	<title>Data Quality APR - DK n R</title>
+	<author>RUPAM</author>
+	<description>Template For Data Quality APR - DK n R Report</description>
+	<icon>images/image.ico</icon>
+	<template>dataquality_original.html</template>
+	<visible>true</visible> 
+	<style>clean</style>
+</efw>
+
+

@@ -1,0 +1,1364 @@
+<script src="getExternalResource.html?path=DataQualityReport/New Report/Report Templates - Data Quality/jquery.dynatable.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="getExternalResource.html?path=DataQualityReport/New Report/Report Templates - Data Quality-m/jquery.dynatable.css">-->
+<script src="getExternalResource.html?path=DataQualityReport/New Report/Report Templates - Data Quality/c3.js"></script>
+<script src="getExternalResource.html?path=DataQualityReport/New Report/Report Templates - Data Quality/dp_test.js"></script>
+<link rel="stylesheet" type="text/css" href="getExternalResource.html?path=DataQualityReport/New Report/Report Templates - Data Quality/c3.css">
+
+<style type="text/css">
+th a {
+  color: #fff;
+}
+th a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.dynatable-search {
+  float: right;
+  margin-bottom: 10px;
+}
+
+.dynatable-pagination-links {
+  float: right;
+}
+
+.dynatable-record-count {
+  display: block;
+  padding: 5px 0;
+}
+
+.dynatable-pagination-links span,
+.dynatable-pagination-links li {
+  display: inline-block;
+}
+
+.dynatable-page-link,
+.dynatable-page-break {
+  display: block;
+  padding: 5px 7px;
+}
+
+.dynatable-page-link {
+  cursor: pointer;
+}
+
+.dynatable-active-page,
+.dynatable-disabled-page {
+  cursor: text;
+}
+.dynatable-active-page:hover,
+.dynatable-disabled-page:hover {
+  text-decoration: none;
+}
+
+.dynatable-active-page {
+  background: #71AF5A;
+  border-radius: 5px;
+  color: #fff;
+}
+.dynatable-active-page:hover {
+  color: #fff;
+}
+.dynatable-disabled-page,
+.dynatable-disabled-page:hover {
+  background: none;
+  color: #999;
+}
+th a {
+  color: #fff;
+}
+th a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.dynatable-search {
+  float: right;
+  margin-bottom: 10px;
+}
+
+.dynatable-pagination-links {
+  float: right;
+}
+
+.dynatable-record-count {
+  display: block;
+  padding: 5px 0;
+}
+
+.dynatable-pagination-links span,
+.dynatable-pagination-links li {
+  display: inline-block;
+}
+
+.dynatable-page-link,
+.dynatable-page-break {
+  display: block;
+  padding: 5px 7px;
+}
+
+.dynatable-page-link {
+  cursor: pointer;
+}
+
+.dynatable-active-page,
+.dynatable-disabled-page {
+  cursor: text;
+}
+.dynatable-active-page:hover,
+.dynatable-disabled-page:hover {
+  text-decoration: none;
+}
+
+.dynatable-active-page {
+  background: #71AF5A;
+  border-radius: 5px;
+  color: #fff;
+}
+.dynatable-active-page:hover {
+  color: #fff;
+}
+.dynatable-disabled-page,
+.dynatable-disabled-page:hover {
+  background: none;
+  color: #999;
+}
+
+.dynatable-head {
+        background-color: #cccccc;
+}
+
+svg{
+        cursor: pointer;
+}
+
+
+.bar {
+    fill: #c0c0c0;
+
+}
+
+
+.btn-success {
+        background-color: #e6e6e6;
+        border-color: black;
+        color: black;
+}
+.btn-success.active,
+.btn-success:active,
+.btn-success:focus,
+.btn-success.hover,
+.open >
+.dropdown-
+toggle.btn-success {
+ background-color: #e6e6e6;
+ border-color:black;
+ color: black;
+ }
+
+.btn-hover {
+background-color:#e6e6e6;
+}
+
+.form-control {
+    border-color:black;
+}
+
+#chart_4 {
+    border-color:black;
+    border:none;
+}
+#chart_5 {
+    border-color:black;
+    border:none;
+}
+.panel > .table-bordered > tbody > tr:first-child > td, .panel > .table-bordered > tbody > tr:first-child > th, .panel > .table-bordered > tbody > tr:last-child > td, .panel > .table-bordered > tbody > tr:last-child > th, .panel > .table-bordered > tfoot > tr:last-child > td, .panel > .table-bordered > tfoot > tr:last-child > th, .panel > .table-bordered > thead > tr:first-child > td, .panel > .table-bordered > thead > tr:first-child > th, .panel > .table-responsive > .table-bordered > tbody > tr:first-child > td, .panel > .table-responsive > .table-bordered > tbody > tr:first-child > th, .panel > .table-responsive > .table-bordered > tbody > tr:last-child > td, .panel > .table-responsive > .table-bordered > tbody > tr:last-child > th, .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > td, .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > th, .panel > .table-responsive > .table-bordered > thead > tr:first-child > td, .panel > .table-responsive > .table-bordered > thead > tr:first-child > th {
+        border-bottom: 1px solid;
+        border-right: 1px solid;
+        border-left:1px solid;
+        border-top:1px solid;
+}
+
+
+.dynatable-sort-header {
+color:black;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+        background-color: white;
+}
+
+
+.panel > .table-bordered > tbody > tr > td:last-child, .panel > .table-bordered > tbody > tr > th:last-child, .panel > .table-bordered > tfoot > tr > td:last-child, .panel > .table-bordered > tfoot > tr > th:last-child, .panel > .table-bordered > thead > tr > td:last-child, .panel > .table-bordered > thead > tr > th:last-child, .panel > .table-responsive > .table-bordered > tbody > tr > td:last-child, .panel > .table-responsive > .table-bordered > tbody > tr > th:last-child, .panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child, .panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child, .panel > .table-responsive > .table-bordered > thead > tr > td:last-child, .panel > .table-responsive > .table-bordered > thead > tr > th:last-child {
+        border-right: 1px solid;
+}
+
+.panel > .table-bordered > tbody > tr > td:first-child, .panel > .table-bordered > tbody > tr > th:first-child, .panel > .table-bordered > tfoot > tr > td:first-child, .panel > .table-bordered > tfoot > tr > th:first-child, .panel > .table-bordered > thead > tr > td:first-child, .panel > .table-bordered > thead > tr > th:first-child, .panel > .table-responsive > .table-bordered > tbody > tr > td:first-child, .panel > .table-responsive > .table-bordered > tbody > tr > th:first-child, .panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child, .panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child, .panel > .table-responsive > .table-bordered > thead > tr > td:first-child, .panel > .table-responsive > .table-bordered > thead > tr > th:first-child {
+        border-left: 1px solid;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+        background-color: white;
+        border: 1px solid;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+        background-color: #f9f9f9;
+}
+
+.table-bordered, .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+        border: 1px solid;
+}
+
+.block{
+    display: block;
+    width: 100%;
+    color: #000;
+    font-size: 32px;
+    text-align: center;
+}
+
+.text-padding{
+    padding: 10px;
+}
+
+.text-left{
+    text-align: left !important;
+}
+
+#scheduleBtn {
+    background:#e6e6e6;
+    border-color:black;
+    color:black;
+}
+
+.selectpicker {
+    border-color:black;
+}
+
+.modal-body {
+    position: relative;
+    overflow-y: auto;
+    max-height: 400px;
+    padding: 15px;
+}
+
+#projectSelector ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#toolbar div{
+    text-align: center;
+}
+
+#toolbar a{
+    color: #222;
+}
+
+#tb-convert-to-charts.disabled{
+    color: #aaa;
+}
+
+@media print{
+  .alert-info, .dynatable-per-page, .dynatable-search{
+    display: none !important;
+  }
+
+  .breadcrumb a {
+    color: #222;
+  }
+}
+
+@media screen{
+    #projectSelector li:not(:first-child){
+        display: none;
+    }    
+}
+</style>
+<div id="custom_dummytag"/>
+<div id="custom_dummytag1"/>
+<div class="container">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li id="back"><a href="#">Template</a></li>
+            <li id="main-report" class="hidden"><a href="#">Main Report</a></li>
+            <li id="drilldown-report" class="hidden">Drilldown Report</li>
+        </ol>
+    </div>
+    <div class="row">
+        <!-- <h3 class="bg-success text-padding"><span class="fa fa-bar-chart-o"></span> New Report
+  <span class="fa fa-arrow-left hidden-print" id="back"></span></h3>
+    </div> -->
+    <div class="row hidden-print" style="display: none;" id="toolbar">
+        <div class="dropdown col-xs-2">
+              <button type="button" data-toggle="dropdown" class="btn btn-default" style="border:none;">
+                <span class="fa fa-download fa-2x"></span>
+                <span class="caret"></span>
+              </button>
+                <ul class="dropdown-menu" role="menu" id="tb-export">
+                    <li><a href="#" data-format="pdf">Export PDF</a></li>
+                    <li><a href="#" data-format="csv">Export CSV</a></li>
+                </ul>
+            </div>
+        <div class="col-xs-2">
+            <a href="#" id="tb-save"><span class="fa fa-floppy-o  fa-2x"></span></a>
+        </div>
+        <div class="col-xs-2">
+            <a href="#" id="tb-print-pdf"><span class="fa fa-print fa-2x"></span></a>
+        </div>
+        <div class="col-xs-2">
+            <a href="#" id="tb-convert-to-charts">
+                <span class="fa fa-bar-chart-o fa-2x"></span>
+            </a>
+        </div>
+        <div class="col-xs-2">
+            <a href="#" id="tb-email">
+                <span class="fa fa-envelope fa-2x"></span>
+            </a>
+        </div>
+        <div class="col-xs-2">
+            <a href="#">
+                <span id="favSelection" class="fa fa-star-o fa-2x"></span>
+            </a>
+        </div>
+    </div>
+    <div class="row" style="display:none;" id = "info">
+        <div class="col-sm-6">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-xs-4">Run Date :</label>
+                    <label class="col-xs-8" id="runDate"></label>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-4">Run By :</label>
+                    <label class="col-xs-8" id = "runBy"></label>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-4">Reporting Period :</label>
+                    <label class="col-xs-8" id = "reportingPeriod"></label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-xs-4">Project Selection(s):</label>
+                    <div class="col-xs-8" id="projectSelector">
+                        <ul></ul>
+                        <a href="#" class="hidden-print">More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="wrap1" data-target="#clientAttr"></div>
+
+    <div class="row" id="wrap2"></div>
+    <div class="row" id="c3chart"></div>
+    <div class="row" id="drill"></div>
+    <div class="row" id="wrap">
+        <h4>Template : Data Quality APR DK&amp;R</h4>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-left">Population :</label>
+                <div class="col-sm-10" id="population"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-left">Agency/Group :</label>
+                <div class="col-sm-10" id="agency"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-left">Select Project :</label>
+                <div class="col-sm-10" id="project"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-left">Date Range :</label>
+                <label class="col-sm-1 control-label">Start</label>
+                <div class="col-sm-4" id="startDate"></div>
+                <label class="col-sm-1 control-label">to End</label>
+                <div class="col-sm-4" id="endDate"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-left">Select Data Elements :</label>
+                <div class="col-sm-10" id="dataElements"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label text-left">Result Options :</label>
+                <div class="col-sm-10" id="resultOptions"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3 col-sm-offset-9" id="run"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3" id="save"></div>
+            </div>
+        </div>
+    </div>
+        
+</div>
+<!--  scheduling - modal-->
+<div class="modal fade" id="clientAttr" tabindex="-1" role="dialog" aria-labelledby="drillDownModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="drillDownModalLabel">Client Attributes For Drill Down Output</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <div class="col-xs-12" id="clientAttrPopup"></div>
+         </div> 
+      </div>
+      <div class="modal-footer">
+        <div class="form-group">
+        <div id="runDrillDown" class="col-sm-3 col-sm-offset-9"></div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+ var dashboard = Dashboard;
+        dashboard.resetAll();
+        dashboard.setVariable('DYNATABLE','');
+        //dashboard.setVariable('sDate','2013-12-16');
+        //dashboard.setVariable('eDate','2014-06-16');
+        //dashboard.setVariable('dataelements',['Race','Gender','Ethnicity']);
+        //dashboard.setVariable('RESULTOPTIONS',['Missing','Refused']);
+        dashboard.setVariable('scheduleSDate','2013-12-16');
+        dashboard.setVariable('scheduleEDate','2014-06-16');
+        dashboard.setVariable('baseChart',[]);
+        dashboard.setVariable('run_now','false');
+        dashboard.setVariable('run_now_drillDown','false');
+        dashboard.setVariable('drillDown','false');
+        dashboard.setVariable('PKey',[]);
+        dashboard.setVariable('recipients',[]);
+        
+        var f = "${format}";
+
+         if(f.indexOf("{format}") >= 0){
+          dashboard.setVariable('format',[]);
+         }
+         else{
+          dashboard.setVariable('format',f.replace(/'/g,'').split(','));
+         }
+         
+         var p = "${projectParam}";
+
+         if(p.indexOf("{projectParam}") >= 0){
+          dashboard.setVariable('projectParam',[]);
+         }
+         else{
+          dashboard.setVariable('projectParam',p.replace(/'/g,'').split(','));
+         }
+         
+         var schedule = "${scheduleopts}";
+
+         if(schedule.indexOf("{scheduleopts}") >= 0){
+          dashboard.setVariable('scheduleopts',[]);
+         }
+         else{
+          dashboard.setVariable('scheduleopts',schedule.replace(/'/g,'').split(','));
+         }
+         
+         var emailScheduling = "${emailsettings}";
+
+         if(emailScheduling.indexOf("{emailsettings}") >= 0){
+          dashboard.setVariable('emailsettings',[]);
+         }
+         else{
+          dashboard.setVariable('emailsettings',emailScheduling.replace(/'/g,'').split(','));
+         }
+         
+        var dataElement = "${dataelements}";
+
+         if(dataElement.indexOf("{dataelements}") >= 0){
+          dashboard.setVariable('dataelements',['Race','Gender','Ethnicity']);
+         }
+         else{
+          dashboard.setVariable('dataelements',dataElement.replace(/'/g,'').split(','));
+         }
+         
+           var resultOption = "${RESULTOPTIONS}";
+
+         if(resultOption.indexOf("{RESULTOPTIONS}") >= 0){
+          dashboard.setVariable('RESULTOPTIONS',['Missing','Refused']);
+         }
+         else{
+          dashboard.setVariable('RESULTOPTIONS',resultOption.replace(/'/g,'').split(','));
+         }
+         
+         var agency_key = "${Akey}";
+
+         if(agency_key.indexOf("{Akey}") >= 0){
+          dashboard.setVariable('Akey',['82']);
+         }
+         else{
+          dashboard.setVariable('Akey',agency_key.replace(/'/g,'').split(','));
+         }
+         
+           var Project_Key = "${PKey}";
+
+         if(Project_Key.indexOf("{PKey}") >= 0){
+          dashboard.setVariable('PKey',['3172']);
+         }
+         else{
+          dashboard.setVariable('PKey',Project_Key.replace(/'/g,'').split(','));
+         }
+        
+         var startDate = "${sDate}";
+
+         if(startDate.indexOf("{sDate}") >= 0){
+          dashboard.setVariable('sDate','2011-01-01');
+         }
+         else{
+          dashboard.setVariable('sDate',startDate.replace(/'/g,''));
+         }
+         
+         var endDate = "${eDate}";
+
+         if(endDate.indexOf("{eDate}") >= 0){
+          dashboard.setVariable('eDate','2012-12-31');
+         }
+         else{
+          dashboard.setVariable('eDate',endDate.replace(/'/g,''));
+         }
+         
+         var ClientAttribute = "${cdisplay}";
+
+         if(ClientAttribute.indexOf("{cdisplay}") >= 0){
+          dashboard.setVariable('cdisplay','Client Key');
+         }
+         else{
+          dashboard.setVariable('cdisplay',ClientAttribute.replace(/'/g,'').split(','));
+         }
+         
+         var row = "${rowHeader}";
+         if(row.indexOf("{rowHeader}") >= 0){
+          dashboard.setVariable('rowHeader','');
+         }
+         else{
+          dashboard.setVariable('rowHeader',row.replace(/'/g,''));
+         }
+         
+         var col = "${colHeader}";
+
+         if(col.indexOf("{colHeader}") >= 0){
+          dashboard.setVariable('colHeader','');
+         }
+         else{
+          dashboard.setVariable('colHeader',col.replace(/'/g,''));
+         }
+         
+        var projectNames = "${projectNames}";
+        if(projectNames.indexOf("{projectNames}") >= 0){
+            dashboard.setVariable('projectNames',[]);
+            projectNames = false;
+          console.log('no projectNames');
+        } else {
+            projectNames = projectNames.replace(/'/g,'').split(',');
+            dashboard.setVariable('projectNames',projectNames);
+        }
+
+
+var selectPopulation = {
+    name: "selectPopulation",
+    type:  "select",
+    options:{
+        multiple:false,
+        value : 'Population',
+        display : 'Population',
+        placeholder: 'Select Population'
+    },
+    htmlElementId : "#population",
+    executeAtStart: true,
+    map:1,
+    iframe:true
+};
+
+var selectProjectName = {
+    name: "selectProjectName",
+    type:  "select2",
+    parameters:["PKey"],
+    listeners:["Akey"],
+    options:{
+        multiple:true,
+        value : 'PKey',
+        display : 'Project',
+        placeholder: 'Select Project'
+    },
+    requestParameters:{
+    Akey:"Akey"
+    },
+    htmlElementId : "#project",
+    executeAtStart: true,
+    map:2   
+};
+
+var selectAgencyName = {
+    name: "selectAgencyName",
+    type:  "select2",
+    parameters:["Akey"],
+    options:{
+        multiple:true,
+        value : 'Akey',
+        display : 'Agency',
+        placeholder: 'Select Agency'
+    },
+    htmlElementId : "#agency",
+    executeAtStart: true,
+    map:3,
+    iframe:true
+};
+
+var selectDataElements = {
+    name: "selectDataElements",
+    type:  "select",
+    parameters : ["dataelements"],
+    options:{
+        multiple:true,
+        value : 'dataelements',
+        display : 'dataelements'
+    },
+    htmlElementId : "#dataElements",
+    executeAtStart: true,
+    map:4,
+};
+
+var selectResultOption = {
+    name: "selectResultOption",
+    type:  "select",
+    parameters :["RESULTOPTIONS"],
+    options:{
+        multiple:true,
+        value : 'ResultOptions',
+        display : 'ResultOptions',
+    },
+    htmlElementId : "#resultOptions",
+    executeAtStart: true,
+    map:5,
+};
+
+var dynaTable = {
+    name: "dynaTable",
+    type:"chart",
+    requestParameters :{
+        dataelements : "dataelements",
+        RESULTOPTIONS : "RESULTOPTIONS",
+        Akey: "Akey",
+        PKey : "PKey",
+        sDate : "sDate",
+        eDate : "eDate"
+    },
+    vf : {
+            id: "4",
+            file: "reportTable.efwvf"
+    },
+    htmlElementId : "#wrap1",
+    executeAtStart: false
+};
+        
+var selectClientAttr = {
+    name: "selectClientAttr",
+    type:  "select",
+    parameters : ["cdisplay"],
+    options:{
+        multiple:true,
+        value : 'cdisplay',
+        display : 'cdisplay',
+    },
+    htmlElementId : "#clientAttrPopup",
+    executeAtStart: true,
+    map:7,
+};
+
+var drillDynaTable = {
+    name: "drillDynaTable",
+    type:"chart",
+    requestParameters :{
+        cdisplay : "cdisplay",
+        rowHeader : "rowHeader",
+        colHeader : "colHeader",
+        Akey : "Akey",
+        PKey : "PKey",
+        sDate : "sDate",
+        eDate : "eDate"
+    },
+    vf : {
+        id: "5",
+        file: "reportTable.efwvf"
+    },
+    htmlElementId : "#drill",
+    executeAtStart: false
+};
+
+var button = {
+    name: "button",
+    type:  "button",
+    options: {
+        display : "Run",
+        classes: "btn-success btn-block btn-pcni"
+    },
+    htmlElementId: "#run",
+    executeAtStart: false
+};
+
+var drillButton ={
+    name: "drillButton",
+    type:  "button",
+    options: {
+        display : "Run",
+        classes: "btn-success btn-block btn-pcni"
+    },
+    htmlElementId: "#runDrillDown",
+    executeAtStart: false
+};
+
+var drillButtonSave ={
+    name: "drillButtonSave",
+    type:  "button",
+    options: {
+        display : "Save",
+        classes: "btn-success btn-block btn-pcni"
+    },
+    htmlElementId: "#saveDrillDown",
+    executeAtStart: false
+};
+
+var datepicker1 ={
+    name: "datepicker",
+    type:  "datepicker",
+    parameters: ["sDate"],
+    htmlElementId: "#startDate",
+    executeAtStart: true
+};
+
+var datepicker2 ={
+    name: "datepicker2",
+    type:  "datepicker",
+    parameters: ["eDate"],
+    htmlElementId: "#endDate",
+    executeAtStart: true
+};
+
+var scheduleSDate ={
+    name: "scheduleSDate",
+    type:  "datepicker",
+    parameters: ["scheduleSDate"],
+    htmlElementId: "#schedulesDate",
+    executeAtStart: true
+};
+
+var scheduleEDate ={
+    name: "scheduleEDate",
+    type:  "datepicker",
+    parameters: ["scheduleEDate"],
+    htmlElementId: "#scheduleeDate",
+    executeAtStart: true
+};
+
+
+
+var chart1 = {
+    name: "chart1",
+    type:"chart",
+    listeners:[],
+    requestParameters :{
+        dataelements :"dataelements",
+        RESULTOPTIONS:"RESULTOPTIONS",
+        Akey: "Akey",
+        PKey : "PKey",
+        sDate : "sDate",
+        eDate : "eDate"
+    },
+    vf : {
+        id: "1",
+        file: "reportTable.efwvf"
+    },
+    htmlElementId : "#wrap2",
+    executeAtStart: false,
+    options:{
+        actions :[{
+            convertToBar:"Convert to Bar",
+            convertToLine:"Convert to Line",
+            convertToArea:"Convert to Area",
+            convertToSpline:"Convert to Spline",
+            convertToAreaSpline:"Convert to AreaSpline",
+            convertToStep:"Convert to Step",
+            convertToAreaStep:"Convert to AreaStep",
+            convertToPie:"Convert to Pie",
+            convertToDonut:"Convert to Donut",
+            convertToScatter:"Convert to Scatter"
+        }]
+    }
+};
+
+
+var showReportMetaData = function() {
+    $('#runDate').text(moment().format("MM-DD-YYYY"));
+    $('#runBy').text(window.DashboardGlobals.sessionUserName);
+    var sDate = moment(Dashboard.getVariable('sDate'), 'YYYY-MM-DD').format("MM-DD-YYYY");
+    var eDate = moment(Dashboard.getVariable('eDate'), 'YYYY-MM-DD').format("MM-DD-YYYY");
+    $('#reportingPeriod').text( sDate+" - "+eDate);
+
+    var projectList = $('#projectSelector').find('ul').empty();
+
+    $('#projectSelector').off();
+    console.log(projectNames);
+
+    if(projectNames){
+        Dashboard.setVariable('projectNames', projectNames);
+        var projects = projectNames;
+        for (var i = 0; i < projects.length; i++){
+            projectList.append("<li>" + projects[i] + "</li>");
+        }
+
+        $('#projectSelector').on('click', 'a', function(){
+            window.bootbox.alert(projects.join("<br>"));
+            return false;
+        })
+    }
+};
+
+var runScript = {
+    name: "runScript",
+    type: "custom",
+    listeners: ["run_now"],
+    htmlElementId: "#custom_dummytag",
+    customScript: function(a,b) {
+        //console.log('----- Executing custom script ---- run_now = ' + dashboard.getVariable('run_now'));
+        if(dashboard.getVariable('run_now') == 'true'){
+            $('#tb-convert-to-charts').removeClass('disabled');
+            dashboard.setVariable('run_now','false');
+            $('#main-report').removeClass('hidden');
+            $('#drilldown-report').addClass('hidden');
+            $('#wrap').hide();
+            $('#wrap1').show();
+            Dashboard.updateComponent('dynaTable');
+            $('#toolbar').show();
+            $('#drill').hide();
+            $('#info').show();
+            showReportMetaData();
+        }
+    },
+    executeAtStart: false
+};
+         
+var runScriptdrillDown = {
+    name: "runScriptdrillDown",
+    type: "custom",
+    listeners: ["run_now_drillDown"],
+    htmlElementId: "#custom_dummytag1",
+    customScript: function(a,b){
+        //console.log('----- Executing custom script ---- run_now_drillDown = ' + dashboard.getVariable('run_now_drillDown'));
+        if(dashboard.getVariable('run_now_drillDown') == 'true') {
+            dashboard.setVariable('run_now_drillDown','false');
+            $('#main-report, #drilldown-report').removeClass('hidden');
+            $('#wrap').hide();
+            $('#clientAttr').modal('hide');
+            $('#wrap1').hide();
+            $('#drill').show();
+            $('#info').show();
+            showReportMetaData();
+            $('#tb-convert-to-charts').addClass('disabled');
+        }
+        
+        Dashboard.updateComponent('drillDynaTable');
+        $('#toolbar').show();
+        $('#tb-convert-to-charts').addClass('disabled');
+        $('#pcni-sub-menu').find('.form-inline').addClass('hidden')
+    },
+    executeAtStart: false
+ };
+
+var saveProjects = {
+    name: "saveProjects",
+    type: "custom",
+    listeners: ["PKey"],
+    htmlElementId: "#custom_dummytag",
+    customScript: function() {
+        //var projects = Dashboard.getVariable('projectNames');
+        //if (projects == "" || projects.length < 1){
+            projects = $('#project').find('input').select2('data');
+            Dashboard.setVariable('projectNames', _.pluck(projects, 'text'))
+        //}
+        //console.log(projects)
+    },
+    executeAtStart: true
+};
+
+ var components = [selectPopulation,selectProjectName,selectAgencyName,selectDataElements,selectResultOption,dynaTable,datepicker1,datepicker2,button,scheduleSDate,scheduleEDate,runScript,selectClientAttr,drillButton,drillDynaTable,chart1,drillButtonSave,runScriptdrillDown, saveProjects];
+    
+dashboard.init(components);
+
+//run_now variable
+var t = "${run_now}";
+
+if(t.indexOf("{run_now}") >= 0){
+  dashboard.setVariable('run_now','false');
+} else {
+  dashboard.setVariable('run_now',t.replace(/'/g,''));
+}
+ 
+var t1 = "${run_now_drillDown}";
+
+if(t1.indexOf("{run_now_drillDown}") >= 0){
+  dashboard.setVariable('run_now_drillDown','false');
+} else {
+  dashboard.setVariable('run_now_drillDown',t1.replace(/'/g,''));
+}
+
+jQuery("#main").on('click','#convertToBar',function(event){
+    event.preventDefault();
+    Dashboard.resetComponent('chart1');
+    var baseCharts = Dashboard.getVariable('baseChart');
+    var newCharts = [];
+    for(var i in baseCharts){
+        newCharts.push(baseCharts[i].transform('C3BarChart'));
+    }
+    Dashboard.setVariable('baseChart',newCharts);   
+});
+
+jQuery("#main").on('click','#convertToLine',function(event){
+    event.preventDefault();
+
+    Dashboard.resetComponent('chart1');
+
+    var baseCharts = Dashboard.getVariable('baseChart');
+    var newCharts = [];
+    for(var i in baseCharts){
+        newCharts.push(baseCharts[i].transform('C3LineChart'));
+    }
+    Dashboard.setVariable('baseChart',newCharts);
+});
+
+
+jQuery("#main").on('click','#convertToArea',function(event){
+    event.preventDefault();
+    Dashboard.resetComponent('chart1');
+    var baseCharts = Dashboard.getVariable('baseChart');
+    var newCharts = [];
+    for(var i in baseCharts){
+        newCharts.push(baseCharts[i].transform('C3AreaChart'));
+    }
+    Dashboard.setVariable('baseChart',newCharts);
+});
+
+jQuery("#main").on('click','#convertToSpline',function(event){
+    event.preventDefault();
+    Dashboard.resetComponent('chart1');
+    var baseCharts = Dashboard.getVariable('baseChart');
+    var newCharts = [];
+    for(var i in baseCharts){
+        newCharts.push(baseCharts[i].transform('C3SplineChart'));
+    }
+    Dashboard.setVariable('baseChart',newCharts);
+});
+
+jQuery("#main").on('click','#convertToAreaSpline',function(event){
+    event.preventDefault();
+    Dashboard.resetComponent('chart1');
+    var baseCharts = Dashboard.getVariable('baseChart');
+    var newCharts = [];
+    for(var i in baseCharts){
+        newCharts.push(baseCharts[i].transform('C3AreaSplineChart'));
+    }
+    Dashboard.setVariable('baseChart',newCharts);
+    
+});
+
+jQuery("#main").on('click','#convertToScatter',function(event){
+    event.preventDefault();
+    Dashboard.resetComponent('chart1');
+    var baseCharts = Dashboard.getVariable('baseChart');
+    var newCharts = [];
+    for(var i in baseCharts){
+        newCharts.push(baseCharts[i].transform('C3ScatterChart'));
+    }
+    Dashboard.setVariable('baseChart',newCharts);
+
+});
+
+jQuery("#main").on('click','#convertToStep',function(event){
+    event.preventDefault();
+    Dashboard.resetComponent('chart1');
+    var baseCharts = Dashboard.getVariable('baseChart');
+    var newCharts = [];
+    for(var i in baseCharts){
+        newCharts.push(baseCharts[i].transform('C3StepChart'));
+    }
+    Dashboard.setVariable('baseChart',newCharts);
+});
+
+jQuery("#main").on('click','#convertToAreaStep',function(event){
+    event.preventDefault();
+    Dashboard.resetComponent('chart1');
+    var baseCharts = Dashboard.getVariable('baseChart');
+    var newCharts = [];
+    for(var i in baseCharts){
+        newCharts.push(baseCharts[i].transform('C3AreaStepChart'));
+    }
+    Dashboard.setVariable('baseChart',newCharts);
+});
+
+jQuery("#main").on('click','#convertToPie',function(event){
+    event.preventDefault();
+    Dashboard.resetComponent('chart1');
+    var baseCharts = Dashboard.getVariable('baseChart');
+    var newCharts = [];
+    for(var i in baseCharts){
+        newCharts.push(baseCharts[i].transform('C3PieChart'));
+    }
+    Dashboard.setVariable('baseChart',newCharts);
+});
+
+jQuery("#main").on('click','#convertToDonut',function(event){
+    event.preventDefault();
+    Dashboard.resetComponent('chart1');
+    var baseCharts = Dashboard.getVariable('baseChart');
+    var newCharts = [];
+    for(var i in baseCharts){
+        newCharts.push(baseCharts[i].transform('C3DonutChart'));
+    }
+    Dashboard.setVariable('baseChart',newCharts);
+}); 
+
+
+
+$(document).ready(function(){
+
+    $('#pcni-sub-menu').find('.form-inline').addClass('hidden');
+    if(window.DashboardGlobals.fileIsFavourite)
+        {
+            $('#favSelection').removeClass('fa fa-star-o');
+            $('#favSelection').addClass('fa fa-star');
+        }
+    //$('#back').hide();
+    $('#wrap2').hide();
+    
+    $("#run").click(function(e) {
+        dashboard.setVariable('run_now','true');
+        return false;
+    });
+    
+    $("#back").on('click', 'a',function(e) {
+        $('#main-report, #drilldown-report').addClass('hidden')
+        $('#wrap').show();
+        $('#wrap1').hide();
+        $('#toolbar').hide();
+        $('#wrap2').hide();
+        $('#drill').hide();
+        $('#page-title').html('New Report');
+        dashboard.setVariable('drillDown','false');
+        $('#info').hide();
+        return false;
+    });
+
+    $("#main-report").on('click', 'a',function(e) {
+        dashboard.setVariable('run_now','true');
+        dashboard.setVariable('drillDown','false');
+        dashboard.setVariable('run_now_drillDown','false');
+        return false;
+    });
+
+    $('#tb-export').on('click', 'a',function(e){
+          //if($('#csv').is(':checked')){
+        var format = $(this).data('format');
+        if(format === 'csv'){
+            if(dashboard.getVariable('drillDown') == 'true'){
+                var dataToSend = {
+                    cdisplay : Dashboard.getVariable('cdisplay'),
+                    rowHeader : Dashboard.getVariable('rowHeader'),
+                    colHeader : Dashboard.getVariable('colHeader'),
+                    Akey : Dashboard.getVariable('Akey'),
+                    PKey : Dashboard.getVariable('PKey'),
+                    sDate : Dashboard.getVariable('sDate'),
+                    eDate : Dashboard.getVariable('eDate'),
+                    vf_id:5,
+                    vf_file:'reportTable.efwvf',
+                    dir: window.DashboardGlobals.folderpath,
+                }
+            } else {
+                var dataToSend = {
+                    dataelements:Dashboard.getVariable('dataelements'),
+                    RESULTOPTIONS:Dashboard.getVariable('RESULTOPTIONS'),
+                    Akey:Dashboard.getVariable('Akey'),
+                    PKey:Dashboard.getVariable('PKey'),
+                    sDate:Dashboard.getVariable('sDate'),
+                    eDate:Dashboard.getVariable('eDate'),
+                    DYNATABLE:Dashboard.getVariable('DYNATABLE'),
+                    vf_id:4,
+                    vf_file:'reportTable.efwvf',
+                    dir: window.DashboardGlobals.folderpath,
+                 }
+            }
+        
+            window.open(window.DashboardGlobals.exportData + '?data=' + JSON.stringify(dataToSend)+'&dir='+window.DashboardGlobals.folderpath+'&filename='+window.DashboardGlobals.file+'&reportType='+window.DashboardGlobals.extension+'&resultDirectory=/DataQualityReport/Saved Reports'+'&reportNameParam='+window.DashboardGlobals.fileTitle+'&reportName='+window.DashboardGlobals.fileTitle);            
+        } 
+
+        if(format === 'pdf') { $.getPrint('pdf'); }
+
+        e.preventDefault();
+    })
+
+   $('#tb-print-pdf').click(function(e){
+        window.print();
+        e.preventDefault();
+    })
+
+   $('#scheduleReport').change(function() {
+        var filename  = $('#save-report-name').closest('.form-group');
+        var button = $('#emailing-btn').find('span');
+        if($(this).is(':checked')) {
+            filename.removeClass('hidden');
+            button.text('Schedule Email');
+            $('#scheduling-modal').modal('show');
+            var jsonScheduleData = Dashboard.getVariable('scheduleopts');
+            
+            $('#scheduleButton').off().one('click', function() {
+                var jsonScheduleData = $('#scheduling-form').serializeObject();
+                Dashboard.setVariable('scheduleopts',jsonScheduleData);
+                $('#scheduling-modal').modal('hide');
+            });
+        } else {
+            filename.addClass('hidden');
+            button.text('Email Now')
+        }
+    });
+        
+    $('#scheduling-modal').on('click', '.close', function(){ $('#scheduleReport').prop('checked', false).change();});
+
+    $('#tb-email').on('click', function(e){
+        $('#emailing-modal').modal('show').one('hidden.bs.modal', function(){
+            $('#scheduleReport').prop('checked', false).change();  
+        });
+
+        $('#emailing-btn').off().on('click', function(){
+            var base, data, formats, recipients, reportSource, reportSourceType;
+
+            if ($(this).parent('li').hasClass('disabled')) {
+                return false;
+            }
+
+            if(!$('#email-csv').is(':checked') && !$('#email-pdf').is(':checked')){
+                bootbox.alert('Please select at least one format');
+                return false
+            }
+
+            base = "<base href=\"" + window.location.protocol + "//" + window.location.host + window.DashboardGlobals.baseUrl + "\">";
+            
+
+            var csvToSend = null;
+
+            var emails = $('#email-to').val().split(';').filter(function(n){ return !!n;});
+            var formats = [];
+
+            if($('#email-pdf').is(':checked')){
+                formats.push('pdf');
+                data = $('html').clone().find('script')
+                    .remove().end().find('nav').remove()
+                    .end().find('#dashboardCanvas')
+                    .removeClass('dashboardCanvas')
+                    .end().find('head').prepend(base).end().html();
+
+                data = encodeURIComponent(Base64.encode('<html>' + data + '</html>'));
+            }
+
+            if($('#email-csv').is(':checked')){
+                formats.push('csv');
+                if(dashboard.getVariable('drillDown') == 'true'){
+                    var csvToSend = {
+                        cdisplay : Dashboard.getVariable('cdisplay'),
+                        rowHeader : Dashboard.getVariable('rowHeader'),
+                        colHeader : Dashboard.getVariable('colHeader'),
+                        Akey : Dashboard.getVariable('Akey'),
+                        PKey : Dashboard.getVariable('PKey'),
+                        sDate : Dashboard.getVariable('sDate'),
+                        eDate : Dashboard.getVariable('eDate'),
+                        vf_id:5,
+                        vf_file:'reportTable.efwvf',
+                        dir: window.DashboardGlobals.folderpath,
+                    }
+                } else {
+                    var csvToSend = {
+                        dataelements:Dashboard.getVariable('dataelements'),
+                        RESULTOPTIONS:Dashboard.getVariable('RESULTOPTIONS'),
+                        Akey:Dashboard.getVariable('Akey'),
+                        PKey:Dashboard.getVariable('PKey'),
+                        sDate:Dashboard.getVariable('sDate'),
+                        eDate:Dashboard.getVariable('eDate'),
+                        DYNATABLE:Dashboard.getVariable('DYNATABLE'),
+                        vf_id:4,
+                        vf_file:'reportTable.efwvf',
+                        dir: window.DashboardGlobals.folderpath,
+                     }
+                }
+                csvToSend = JSON.stringify(csvToSend)
+            }
+
+            if($('#scheduleReport').is(':checked')){
+                if($('#save-report-name').val().trim()==''){
+                    dashboard.modal('Error','Please provide report name');
+                    return false;
+                }
+                var scheduleopts = dashboard.getVariable('scheduleopts');
+                scheduleopts.ScheduledTime =moment().add(2,'m').format("HH:mm:ss");
+
+                var subject = $('#email-subject').val(),
+                    body = $('#email-body').val();
+
+                var emailSettings = {
+                    Formats: formats,
+                    Recipients: JSON.stringify(emails),
+                    Zip: false
+                }
+
+                if(subject && subject !== '') {
+                    emailSettings.Subject = subject;
+                }
+
+                if(body && body !== '') {
+                    emailSettings.Body = body;
+                }
+
+                var parameters = {
+                    dataelements:Dashboard.getVariable('dataelements'),
+                    RESULTOPTIONS:Dashboard.getVariable('RESULTOPTIONS'),
+                    Akey:Dashboard.getVariable('Akey'),
+                    PKey:Dashboard.getVariable('PKey'),
+                    sDate:Dashboard.getVariable('sDate'),
+                    eDate:Dashboard.getVariable('eDate'),
+                    run_now:'true',
+                    format:Dashboard.getVariable('format'),
+                    projectParam:Dashboard.getVariable('projectParam'),
+                    projectNames: Dashboard.getVariable('projectNames')
+                };
+
+                var postJSON = {
+                    command:'add',
+                    reportName:$('#save-report-name').val(),
+                    reportDirectory:window.DashboardGlobals.folderpath,
+                    reportFile:window.DashboardGlobals.file,
+                    location:"DataQualityReport/My Library/Report Templates - Data Quality",
+                    EmailSettings: JSON.stringify(emailSettings),
+                    ScheduleOptions: JSON.stringify(scheduleopts),
+                    isActive: true
+                };
+                
+                if (csvToSend) {
+                    parameters.csvdata = csvToSend;
+                }
+                postJSON.reportParameters=JSON.stringify(parameters);
+                
+                $.post(window.DashboardGlobals.saveReport, postJSON).done(function( data ) {
+
+                    if(data == 'success')
+                        dashboard.modal('Success','Your report has been saved sucessfully');
+                    else
+                        dashboard.modal('Error','There is some problem in saving your report. Please try again');
+                });
+                $('#emailing-modal').modal('hide');
+
+            } else {
+                $('#emailing-modal').modal('hide');
+                var subject = $('#email-subject').val(),
+                    body = $('#email-body').val(),
+                    emailsettings = {
+                        formats: JSON.stringify(formats),
+                        recipients: JSON.stringify(emails),
+                        reportSourceType: 'adhoc',
+                        reportName: 'DataQualityApp',
+                        data: csvToSend
+                    };
+                    emailsettings.reportSource = data ? data : '';
+
+                if(subject && subject !== '') {
+                    emailsettings.subject = subject;
+                }
+
+                if(body && body !== '') {
+                    emailsettings.body = body;
+                }
+
+                $.post(window.DashboardGlobals.sendMail, emailsettings).done(function( data ) {
+                    if(data == 'success')
+                        dashboard.info('Your email has been sent sucessfully');
+                    else
+                        dashboard.alert('There is some problem in sending your email. Please try again');
+                });
+            }
+
+        });
+        e.preventDefault();
+    });
+
+    $('#tb-save').click(function(e){
+
+        var reportName = false;
+        
+        bootbox.prompt('Please give a name for your report', function(result){
+            if (result === null || result === ''){
+
+            } else {
+                    var parameters = {
+                        dataelements:Dashboard.getVariable('dataelements'),
+                        RESULTOPTIONS:Dashboard.getVariable('RESULTOPTIONS'),
+                        Akey:Dashboard.getVariable('Akey'),
+                        PKey:Dashboard.getVariable('PKey'),
+                        sDate:Dashboard.getVariable('sDate'),
+                        eDate:Dashboard.getVariable('eDate'),
+                        run_now:'true',
+                        projectParam:Dashboard.getVariable('projectParam'),
+                        projectNames: Dashboard.getVariable('projectNames')
+                    };
+                
+                if(dashboard.getVariable('drillDown') ==='true') {
+                        parameters.cdisplay = Dashboard.getVariable('cdisplay');
+                        parameters.rowHeader = Dashboard.getVariable('rowHeader');
+                        parameters.colHeader = Dashboard.getVariable('colHeader');
+                        parameters.run_now_drillDown ='true';
+                }
+
+                var postJSON = {
+                    command:'add',
+                    reportName: result,
+                    reportDirectory:window.DashboardGlobals.folderpath,
+                    reportFile:window.DashboardGlobals.file,
+                    location:"DataQualityReport/My Library/Report Templates - Data Quality",
+                };
+                
+                postJSON.reportParameters=JSON.stringify(parameters);
+                
+                $.post(window.DashboardGlobals.saveReport, postJSON).done(function( data ) {
+
+                    if(data == 'success')
+                        dashboard.modal('Success','Your report has been saved sucessfully');
+                    else
+                        dashboard.modal('Error','There is some problem in saving your report. Please try again');
+                });
+            }
+        });
+
+        e.preventDefault();
+    });
+       
+    $('#tb-convert-to-charts').click(function(e) {
+
+        if ($(this).hasClass('disabled')) return false;
+
+        if($('#wrap1').css("display")=='block')
+        {
+            Dashboard.updateComponent('chart1');
+        }
+        $('#wrap1').toggle();
+        $('#wrap2').toggle();
+        e.preventDefault();
+        return false;
+    });
+    
+    $('#runDrillDown').click(function() {
+        dashboard.setVariable('run_now_drillDown','true');
+   });
+    return false;
+});
+</script>

@@ -1,0 +1,158 @@
+<EFWD>
+   <DataSources>
+        <Connection id="1" type="sql.jdbc">
+            <Driver>com.mysql.jdbc.Driver</Driver>
+            <Url>jdbc:mysql://192.168.2.9:3306/OPENHMIS2</Url>
+            <User>devuser</User>
+            <Pass>devuser</Pass>
+        </Connection>
+    </DataSources>
+    
+   <DataMaps>
+   <DataMap id="1" connection="1" type="sql">
+       <Name>Sql Query For Population Parameter</Name>
+		<Query>
+			<![CDATA[select 'Clients in Programs Only' as Population;]]>
+		</Query>          
+  </DataMap>
+   <DataMap id="2" connection="1" type="sql" >
+       <Name>Query For Project_Name Parameter</Name>
+		<Query>
+			<![CDATA[select P.PROJECT_KEY AS PKey,P.PROJECT_NAME AS Project FROM PROJECT P,AGENCY A
+						WHERE
+						A.AGENCY_KEY = P.AGENCY_KEY AND
+						A.AGENCY_KEY in(${Akey});]]>
+			
+		</Query>
+		<Parameters>
+				<Parameter name="Akey" type="Collection" default="'40'"/>
+		</Parameters>
+
+             </DataMap>
+ <DataMap id="3" connection="1" type="sql" >
+       <Name>Query for Agency Name Parameter</Name>
+		<Query>
+			<![CDATA[select AGENCY_KEY AS Akey,AGENCY_NAME as Agency from AGENCY;]]>
+		</Query>
+
+             </DataMap>
+
+<DataMap id="4" connection="1" type="sql" >
+       <Name>Query For Data Elements</Name>
+		<Query>
+			<![CDATA[select 'First Name' as dataelements
+union
+select 'Last Name' as dataelements
+union
+select 'Date Of Birth' as dataelements
+union
+select 'Gender' as dataelements
+union
+select 'Race' as dataelements
+union
+select 'Ethnicity' as dataelements
+union
+select 'Veteran Status' as dataelements
+union
+select 'Residence Prior To Entry' as dataelements
+union
+select 'Zip Of Last Perm Residence' as dataelements
+union
+select 'Housing Status' as dataelements
+union
+select 'Income(At Entry)' as dataelements
+union
+select 'Income(At Exit)' as dataelements
+union
+select 'Non-cash Benefits(At Entry)' as dataelements
+union
+select 'Non-cash Benefits(At Exir)' as dataelements
+union
+select 'Physical Disability' as dataelements
+union
+select 'Chronic Health Condition' as dataelements
+union
+select 'HIV/AIDS' as dataelements
+union
+select 'Mental Health' as dataelements
+union
+select 'Substance Abuse(At Entry)' as dataelements
+union
+select 'Domestic Violence(At Entry)' as dataelements]]>
+</Query>
+
+             </DataMap>
+
+<DataMap id="5" connection="1" type="sql" >
+       <Name>Query For Result Options</Name>
+		<Query>
+			<![CDATA[select 'dk' as ResultOptions
+union	
+select 'Refused' as ResultOptions
+union
+select 'Missing' as ResultOptions
+union
+select 'Totalapplicableclients' as ResultOptions
+union
+select 'total' as ResultOptions
+]]></Query>
+ </DataMap>
+
+<DataMap id="6" connection="1" type="sql" >
+       <Name>Query For Result Options</Name>
+		<Query>
+			<![CDATA[CALL dataQualityMainReport("${Akey}","${PKey}","${dataelements}","${RESULTOPTIONS}",${sDate},${eDate});]]></Query>
+
+<Parameters>
+            <Parameter name="dataelements" type="Collection" default="'Race'"/>
+            <Parameter name="RESULTOPTIONS" type="Collection" default="'Refused','Missing'"/>
+			<Parameter name="Akey" type="Collection" default="'82'"/>
+            <Parameter name="PKey" type="Collection" default="'3172'"/>
+			<Parameter name="sDate" type="String" default=''/>
+			<Parameter name="eDate" type="String" default=''/>
+        </Parameters>
+ </DataMap>     
+<DataMap id="7" connection="1" type="sql" >
+       <Name>Query For Client Attr</Name>
+		<Query>
+			<![CDATA[SELECT 'Client Key' as cdisplay,'CLIENT_KEY' AS clientattr
+					union
+					SELECT 'First Name' as cdisplay,'NAME_FIRST' AS clientattr
+					union
+					SELECT 'Last Name' as cdisplay,'NAME_LAST' AS clientattr
+					union
+					SELECT 'Date Of Birth' as cdisplay,'DATE_OF_BIRTH' AS clientattr
+					union
+					SELECT 'Gender' as cdisplay,'Gender' AS clientattr
+					union
+					SELECT 'Race' as cdisplay,'Race' AS clientattr
+					union
+					SELECT 'Ethnicity' as cdisplay,'Ethnicity' AS clientattr
+					union
+					SELECT 'Veteran Status' as cdisplay,'Veteran Status' AS clientattr
+					union
+					SELECT 'Project Entry Date' as cdisplay,'ENTRY_DATE_TIME' AS clientattr
+					union
+					SELECT 'Project Exit Date' as cdisplay,'LOG_DATE_TIME' AS clientattr
+					union
+					SELECT 'Entering User Key' as cdisplay,'ENTRY_USER_KEY' AS clientattr
+				]]>
+		</Query>
+	</DataMap>
+	<DataMap id="8" connection="1" type="sql" >
+       <Name>Query For Drill Down Report</Name>
+		<Query>
+			<![CDATA[CALL dataquality(${rowHeader},"${Akey}","${PKey}",${colHeader},"${cdisplay}",${sDate},${eDate});]]>
+		</Query>
+		<Parameters>
+            <Parameter name="cdisplay" type="Collection" default="'Client Key'"/>
+			<Parameter name="rowHeader" type="String" default='Race'/>
+			<Parameter name="colHeader" type="String" default='refused'/>
+			<Parameter name="Akey" type="Collection" default="'82'"/>
+			<Parameter name="PKey" type="Collection" default="'3172'"/>
+			<Parameter name="sDate" type="String" default='2011-01-01'/>
+			<Parameter name="eDate" type="String" default='2012-12-31'/>
+        </Parameters>
+	</DataMap>	
+ </DataMaps>
+</EFWD>

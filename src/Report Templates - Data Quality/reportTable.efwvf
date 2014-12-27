@@ -1,0 +1,331 @@
+<Charts>
+<Chart id ="1">
+<prop>
+        <name>Chart</name>
+        <type>Custom</type>
+        <DataSource>6</DataSource>
+        <script>
+        <![CDATA[  
+			var drillDown = dashboard.setVariable('drillDown','false');
+			var resultoptions = dashboard.getVariable('RESULTOPTIONS');
+			
+			for (var i in resultoptions) {
+				var divtag = "<div id=\"C3Chart_" + i +"\"></div>"  
+				//alert(resultoptions[i] + divtag);
+				
+				$("#chart_1").append(divtag);
+       
+				//data[0].Missing = 3;																		
+       
+				var options = { 
+					type: 'C3BarChart',
+					data: { 
+						jsondata: data,
+						categorykey : 'dataelements',	
+						//serieskey: 'RESULTOPTIONS',
+						//valuekey: 'Refused',
+						valuekeys: [resultoptions[i]],
+						labels: true
+					},
+			 
+					placeholder: 'C3Chart_' + i,
+					
+					point: {
+						show: true
+					},
+					tooltip: {
+						show: true
+					},
+					color: {
+							pattern: ['#c0c0c0', '#aec7e8', '#9467bd', '#c5b0d5', '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5']
+						},
+						
+					zoom: {enabled:false},		
+					
+					subchart: {
+						show:false
+					},
+					
+					legend: {
+							show: true,
+						},
+					
+					axis: { rotated: true,
+						x: { 
+						
+							label: {    
+								text: 'dataelements',
+								position: 'inner-right'
+							},
+							tick: {
+									rotate:0 ,
+									
+								},
+							
+							type: 'category',
+							
+						},
+						y: { 
+							
+							label: {    
+								text: resultoptions[i]
+							}
+							   
+						}
+				
+					},
+					interaction: {
+					  enabled: true
+					}				
+				};	
+				var mychart = chart.renderChart(options);
+				var baseChart = dashboard.getVariable('baseChart');
+				baseChart.push(mychart);
+				dashboard.setVariable('baseChart',baseChart);
+				console.log(dashboard.getVariable('baseChart'));
+			}
+
+
+]]>
+
+</script>
+</prop>
+</Chart>
+<Chart id ="4">
+<prop>
+		<name>Pie Chart</name>
+		<type>Custom</type>
+		<width>50</width>
+		<height>50</height>
+		<title>
+			<value>Bar Chart</value>
+			<size>100</size>
+			<position>Right</position>
+		</title>
+		<DataSource>6</DataSource>
+		<animation>False</animation>
+		<clickable>No</clickable>
+		<clickaction>NO</clickaction>
+		<timeseries>Yes</timeseries>
+		<timeformat>DD:MM:YY</timeformat>
+		<orientation>Center</orientation>
+		<showvalues>Yes</showvalues>
+		<bar-size>100</bar-size>
+		<spacing>
+			<xaxis>2</xaxis>
+			<yaxis>2</yaxis>
+		</spacing>
+		<columns>
+			<xaxis>
+				<name>Column 1</name>
+				<size>15</size>
+				<position>Right</position>
+			</xaxis>
+			<yaxis>
+				<name>Column 2</name>
+				<size>15</size>
+				<position>Right</position>
+			</yaxis>
+		</columns>
+		<mouseon>NO</mouseon>
+		<tooltip>
+			<value>Bar Chart property</value>
+			<size>100</size>
+		</tooltip>
+		<colors>Red</colors>
+		<legend>
+			<value>fffff</value>
+			<size>100</size>
+			<position>Center</position>
+		</legend>
+		<script>
+			<![CDATA[
+			var drillDown = dashboard.setVariable('drillDown','false');
+			var data2 = [];
+ for(var i = 0; i< data.length; i++){
+          var temp={};
+          for (var key in data[i]){
+            if( data[i].hasOwnProperty(key)){
+               temp[key.toLowerCase()] = data[i][key];
+            }
+          }
+     data2.push(temp);
+       }
+  
+  data = data2;
+  delete data2;
+  console.log(data);
+
+
+	$("#chart_4").addClass('panel').addClass('panel-primary');
+
+	var table = $('<table id="chart_4_table" class="table table-bordered table-striped" "style=background-border:black;"><thead><tr></tr></thead><tbody></tbody></table>');
+		
+		
+	var columns1 = Dashboard.getVariable("RESULTOPTIONS");
+	//columns.unshift('dataelements');
+	var columns = ['dataelements'].concat(columns1);
+	console.log(columns);
+
+	for (var i = 0; i<columns.length; i++){
+	    table.find('thead tr').append('<th>' + columns[i] + '</th>');
+	}				
+
+	$('#chart_4').append(table);
+
+	var dynatable = $('#chart_4_table').dynatable({
+	  table :{
+	    defaultColumnIdStyle : 'lowercase'
+	  },
+	  dataset: {
+	    records: data
+	  }
+	}).data('dynatable');
+
+	$("#toolbar").removeClass('hidden');
+	
+	   $('#chart_4_table td').each(function(){
+		if($(this).text()!=0 )
+          $(this).css("text-decoration", "underline"); 
+		$('#chart_4_table td:first-child').css("text-decoration", "none");
+});
+ $('#chart_4_table th').each(function(){
+	  if($(this).text().match('total'))
+	  $('#chart_4_table td:last-child').css("text-decoration", "none");
+	 });
+	
+	$('#chart_4_table td').click(function () {
+  
+                   console.log($(this).html());
+                   if($(this).html()!='0')
+                   {
+                   var row = $(this).closest("tr")   
+                   .find("td:first")    
+                       .text(); 
+                    console.log(row);
+                   var indx = $(this).index();
+                   var col = $('#chart_4_table th').eq(indx).text();
+                   console.log(col);
+					
+				   $("#selectClientAttr").removeClass('hidden');
+				   $('#clientAttr').modal('show');
+				   dashboard.setVariable('rowHeader',row);
+				   dashboard.setVariable('colHeader',col);
+                   }
+});
+
+
+]]>
+		</script>
+		<Customtag id="test">
+		<name>Cutom tags will be here</name>
+		</Customtag>
+		
+</prop>
+</Chart>
+<Chart id ="5">
+<prop>
+		<name>Pie Chart</name>
+		<type>Custom</type>
+		<width>50</width>
+		<height>50</height>
+		<title>
+			<value>Bar Chart</value>
+			<size>100</size>
+			<position>Right</position>
+		</title>
+		<DataSource>8</DataSource>
+		<animation>False</animation>
+		<clickable>No</clickable>
+		<clickaction>NO</clickaction>
+		<timeseries>Yes</timeseries>
+		<timeformat>DD:MM:YY</timeformat>
+		<orientation>Center</orientation>
+		<showvalues>Yes</showvalues>
+		<bar-size>100</bar-size>
+		<spacing>
+			<xaxis>2</xaxis>
+			<yaxis>2</yaxis>
+		</spacing>
+		<columns>
+			<xaxis>
+				<name>Column 1</name>
+				<size>15</size>
+				<position>Right</position>
+			</xaxis>
+			<yaxis>
+				<name>Column 2</name>
+				<size>15</size>
+				<position>Right</position>
+			</yaxis>
+		</columns>
+		<mouseon>NO</mouseon>
+		<tooltip>
+			<value>Bar Chart property</value>
+			<size>100</size>
+		</tooltip>
+		<colors>Red</colors>
+		<legend>
+			<value>fffff</value>
+			<size>100</size>
+			<position>Center</position>
+		</legend>
+		<script>
+			<![CDATA[
+			var drillDown = dashboard.setVariable('drillDown','true');
+			var data2 = [];
+		for(var i = 0; i< data.length; i++){
+          var temp={};
+          for (var key in data[i]){
+            if( data[i].hasOwnProperty(key)){
+               temp[key.toLowerCase()] = data[i][key];
+            }
+          }
+     data2.push(temp);
+       }
+  
+  data = data2;
+  delete data2;
+  console.log(data);
+
+	$("#chart_5").addClass('panel').addClass('panel-primary');
+
+var table = $('<table id="chart_5_table" class="table table-bordered table-striped"><thead><tr></tr></thead><tbody></tbody></table>');
+
+for (key in data[0]){
+    table.find('thead tr').append('<th>' + key + '</th>');
+}
+
+/*$('#chart_5').append('<h3 class="panel-heading" style="margin-top:0; clear: none">Detailed Sales Report</h3>')					*/
+
+$('#chart_5').append(table);
+
+var dynatable = $('#chart_5_table').dynatable({
+  table :{
+    defaultColumnIdStyle : 'lowercase'
+  },
+  dataset: {
+    records: data
+  }
+}).data('dynatable');
+
+
+
+/*if (!dashboard.variables.get('DYNATABLE').get('value'))
+{
+}
+else
+{
+var dynatable = dashboard.variables.get('DYNATABLE').get('value');
+dynatable.settings.dataset.originalRecords = data;
+dynatable.process();
+}
+dashboard.setVariable('DYNATABLE',dynatable);	*/										]]>
+		</script>
+		<Customtag id="test">
+		<name>Cutom tags will be here</name>
+		</Customtag>
+		
+</prop>
+</Chart>
+</Charts>
